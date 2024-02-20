@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 include 'register.php';
 include 'login.php';
+include 'portfolio.php';
