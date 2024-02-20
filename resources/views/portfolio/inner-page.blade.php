@@ -47,7 +47,7 @@
 
       <div class="profile">
         <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        <h1 class="text-light"><a href="index.blade.php">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -79,7 +79,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Inner Page</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.blade.php">Home</a></li>
             <li>Inner Page</li>
           </ol>
         </div>
