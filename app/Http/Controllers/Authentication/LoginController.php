@@ -31,4 +31,11 @@ class LoginController extends Controller
 
         return redirect('/')->with('success', 'Welcome Back!');
     }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect('/')->with('success', 'Goodbye!');
+    }
 }
