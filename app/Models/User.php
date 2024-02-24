@@ -54,4 +54,13 @@ class User extends Authenticatable
     {
         return $this->first_name . ' ' . $this->last_name ;
     }
+
+    public function getProfessionsStringAttribute()
+    {
+        $titles = [];
+        foreach ($this->professions as $profession){
+            $titles[] = $profession->name;
+        }
+        return implode(', ' , $titles);
+    }
 }
