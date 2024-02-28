@@ -5,7 +5,7 @@
         <div class="hero-container" data-aos="fade-in">
             <h1>{{ auth()->user()->fullName}}</h1>
             <p>I'm <span class="typed" data-typed-items="{{$titles}}"></span></p>
-            <a class="btn btn-primary mx-2" href="#" role="button">Add titles</a>
+            <a class="btn btn-primary mx-2" href="{{route('portfolio.hero.create')}}" role="button">Add titles</a>
             <a class="btn btn-secondary mx-2" href="#" role="button">Edit titles</a>
             <a class="btn btn-danger mx-2" href="#" role="button">Delete titles</a>
         </div>
