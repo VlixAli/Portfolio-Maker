@@ -1,7 +1,10 @@
 <x-portfolio.layout>
     <x-portfolio.navbar :user="auth()->user()->fullName"/>
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+        <x-portfolio.alert type="success"/>
+        <x-portfolio.alert type="info"/>
         <div class="hero-container" data-aos="fade-in">
             <h1>{{ auth()->user()->fullName}}</h1>
             <p>I'm <span class="typed" data-typed-items="{{$titles}}"></span></p>
