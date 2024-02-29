@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Portfolio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Hero\StoreRequest;
 use App\Models\Title;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -25,11 +26,22 @@ class HeroController extends Controller
 
     public function store(StoreRequest $request)
     {
-        Title::create([
-            'name' => $request->validated('name'),
-            'user_id' => $request->user()->id,
-            'slug' => Str::slug($request->validated('name'))
-        ]);
+        $user = $request->user();
+        $request_title = $request->validated('name');
+        $title = Title::where('name', '=', $request_title)->first();
+        if ($title) {
+            if ($user->titles->contains($title)) {
+                return redirect()->route('portfolio.hero.index')->with('success', 'Title already exists!');
+            } else {
+                $user->titles()->attach($title);
+            }
+        } else {
+            $title = Title::create([
+                'name' => $request_title,
+                'slug' => Str::slug($request->validated('name'))
+            ]);
+            $user->titles()->attach($title);
+        }
 
         return redirect()->route('portfolio.hero.index')->with('success', 'Title Added!');
     }
@@ -43,24 +55,35 @@ class HeroController extends Controller
 
     public function update(StoreRequest $request, Title $title)
     {
-        $title->update([
-            'name' => $request->validated('name'),
-            'slug' => Str::slug($request->validated('name'))
-        ]);
+        $user = $request->user();
+        $user->titles()->detach($title);
+        $request_title = $request->validated('name');
+        $title = Title::where('name', '=', $request_title)->first();
+        if ($title) {
+            $user->titles()->attach($title);
+        } else {
+            $title = Title::create([
+                'name' => $request_title,
+                'slug' => Str::slug($request->validated('name'))
+            ]);
+            $user->titles()->attach($title);
+        }
 
         return redirect()->route('portfolio.hero.index')->with('success', 'Title Updated!');
     }
 
     public function destroy(Title $title)
     {
-        $title->delete();
+        Auth::user()->titles()->detach($title);
+        if ($title->users()->count() == 0) {
+            $title->delete();
+        }
         return redirect()->route('portfolio.hero.index')->with('info', 'Title Deleted!');
     }
 
     public function empty()
     {
-        Title::where('user_id' , '=' , auth()->user()->id)
-            ->delete();
+        Auth::user()->titles()->detach();
         return redirect()->route('portfolio.hero.index')->with('info', 'All Titles Deleted!');
     }
 }
