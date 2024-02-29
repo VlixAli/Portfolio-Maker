@@ -9,7 +9,7 @@
     </div>
 @endif
 <div class="form-group mb-3">
-    <x-form2.input label="New Title" name="name" placeholder="Add your new Title!"/>
+    <x-form2.input label="New Title" name="name" placeholder="Add your new Title!" :value="$title->name ?? ''"/>
 </div>
 <div class="form-group mb-3">
     <button type="submit" class="btn btn-primary">{{ $button_label ?? 'Save' }}</button>
