@@ -11,7 +11,7 @@ class PortfolioController extends Controller
     public function index()
     {
         return view('portfolio.index',[
-            'titles' => auth()->user()->professionsString
+            'titles' => auth()->user()->titlesString
         ]);
     }
 }
