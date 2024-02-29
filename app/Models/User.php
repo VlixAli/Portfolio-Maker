@@ -45,9 +45,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function professions()
+    public function titles()
     {
-        return $this->hasMany(Profession::class);
+        return $this->hasMany(Title::class);
     }
 
     public function getFullNameAttribute()
@@ -55,11 +55,11 @@ class User extends Authenticatable
         return $this->first_name . ' ' . $this->last_name ;
     }
 
-    public function getProfessionsStringAttribute()
+    public function getTitlesStringAttribute()
     {
         $titles = [];
-        foreach ($this->professions as $profession){
-            $titles[] = $profession->name;
+        foreach ($this->titles as $title){
+            $titles[] = $title->name;
         }
         return implode(', ' , $titles);
     }

@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Portfolio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Hero\StoreRequest;
-use App\Models\Profession;
+use App\Models\Title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class HeroController extends Controller
 {
@@ -21,9 +22,10 @@ class HeroController extends Controller
 
     public function store(StoreRequest $request)
     {
-        Profession::create([
+        Title::create([
             'name' => $request->validated('name'),
             'user_id' => $request->user()->id,
+            'slug' => Str::slug($request->validated('name'))
         ]);
 
         return redirect()->route('portfolio.index')->with('success', 'Title Added!');
