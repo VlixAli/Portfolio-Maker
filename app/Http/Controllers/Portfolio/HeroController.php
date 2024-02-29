@@ -50,4 +50,10 @@ class HeroController extends Controller
 
         return redirect()->route('portfolio.hero.index')->with('success', 'Title Updated!');
     }
+
+    public function destroy(Title $title)
+    {
+        $title->delete();
+        return redirect()->route('portfolio.hero.index')->with('info', 'Title Deleted!');
+    }
 }
