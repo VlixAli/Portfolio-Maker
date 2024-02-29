@@ -31,7 +31,7 @@ class HeroController extends Controller
             'slug' => Str::slug($request->validated('name'))
         ]);
 
-        return redirect()->route('portfolio.index')->with('success', 'Title Added!');
+        return redirect()->route('portfolio.hero.index')->with('success', 'Title Added!');
     }
 
     public function edit(Title $title)
@@ -55,5 +55,12 @@ class HeroController extends Controller
     {
         $title->delete();
         return redirect()->route('portfolio.hero.index')->with('info', 'Title Deleted!');
+    }
+
+    public function empty()
+    {
+        Title::where('user_id' , '=' , auth()->user()->id)
+            ->delete();
+        return redirect()->route('portfolio.hero.index')->with('info', 'All Titles Deleted!');
     }
 }
