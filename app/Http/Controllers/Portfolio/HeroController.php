@@ -11,10 +11,13 @@ use Illuminate\Support\Str;
 
 class HeroController extends Controller
 {
-//    public function index()
-//    {
-//        return view('portfolio.hero.create');
-//    }
+    public function index()
+    {
+        return view('portfolio.hero.index', [
+            'titles' => auth()->user()->titles
+        ]);
+    }
+
     public function create()
     {
         return view('portfolio.hero.create');
