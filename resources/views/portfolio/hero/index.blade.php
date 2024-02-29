@@ -12,10 +12,10 @@
         @forelse($titles as $title)
             <tr>
                 <td> {{ $title->id }}</td>
-                <td><a href="{{ route('portfolio.hero.index' , $title->id) }}">{{ $title->name }}</a></td>
+                <td><a href="{{ route('portfolio.hero.edit' , $title->slug) }}">{{ $title->name }}</a></td>
                 <td>{{ $title->created_at }}</td>
                 <td>
-                    <a href="{{ route('portfolio.hero.create', $title->id) }}"
+                    <a href="{{ route('portfolio.hero.edit', $title->slug) }}"
                        class="btn btn-sm btn-outline-success">Edit</a>
                 </td>
                 <td>
