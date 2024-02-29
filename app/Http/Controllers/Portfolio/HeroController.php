@@ -36,8 +36,18 @@ class HeroController extends Controller
 
     public function edit(Title $title)
     {
-        return view('portfolio.hero.edit',[
+        return view('portfolio.hero.edit', [
             'title' => $title
         ]);
+    }
+
+    public function update(StoreRequest $request, Title $title)
+    {
+        $title->update([
+            'name' => $request->validated('name'),
+            'slug' => Str::slug($request->validated('name'))
+        ]);
+
+        return redirect()->route('portfolio.hero.index')->with('success', 'Title Updated!');
     }
 }
