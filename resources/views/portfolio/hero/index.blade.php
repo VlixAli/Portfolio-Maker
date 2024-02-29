@@ -1,4 +1,6 @@
 <x-portfolio.inner-page title="Titles" :user="auth()->user()->fullName">
+    <x-portfolio.alert type="success"/>
+    <x-portfolio.alert type="info"/>
     <table class="table">
         <thead>
         <tr>
