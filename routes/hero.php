@@ -11,4 +11,5 @@ Route::controller(HeroController::class)
         Route::get('/hero/{title:slug}', 'edit')->name('edit');
         Route::post('/hero/{title:slug}', 'update')->name('update');
         Route::delete('/hero/{title:slug}', 'destroy')->name('delete');
+        Route::delete('/index', 'empty')->name('empty');
     });
