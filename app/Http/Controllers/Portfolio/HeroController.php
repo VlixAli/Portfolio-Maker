@@ -33,4 +33,11 @@ class HeroController extends Controller
 
         return redirect()->route('portfolio.index')->with('success', 'Title Added!');
     }
+
+    public function edit(Title $title)
+    {
+        return view('portfolio.hero.edit',[
+            'title' => $title
+        ]);
+    }
 }
