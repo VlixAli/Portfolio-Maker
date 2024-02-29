@@ -34,6 +34,6 @@
         </tbody>
     </table>
     <div class="form-group mb-3">
-        <button type="submit" class="btn btn-outline-primary">Add new title</button>
+        <a class="btn btn-outline-primary mx-2" href="{{route('portfolio.hero.create')}}" role="button">Add new title</a>
     </div>
 </x-portfolio.inner-page>
