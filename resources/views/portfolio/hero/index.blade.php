@@ -21,7 +21,7 @@
                        class="btn btn-sm btn-outline-success">Edit</a>
                 </td>
                 <td>
-                    <form action="{{ route('portfolio.hero.create', $title->id) }}" method="post">
+                    <form action="{{ route('portfolio.hero.delete', $title->slug) }}" method="post">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
