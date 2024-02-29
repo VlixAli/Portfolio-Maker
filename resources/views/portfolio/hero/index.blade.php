@@ -36,6 +36,12 @@
         </tbody>
     </table>
     <div class="form-group mb-3">
-        <a class="btn btn-outline-primary mx-2" href="{{route('portfolio.hero.create')}}" role="button">Add new title</a>
+        <a class="btn btn-outline-primary mx-2" href="{{route('portfolio.hero.create')}}" role="button">Add new
+            title</a>
+        <form class="btn" action="{{ route('portfolio.hero.empty') }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-outline-danger">Delete all titles</button>
+        </form>
     </div>
 </x-portfolio.inner-page>
