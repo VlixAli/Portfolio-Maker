@@ -8,4 +8,5 @@ Route::controller(PortfolioController::class)
         Route::get('/home', 'index')->name('index');
 
         include 'hero.php';
+        include 'about.php';
     });
