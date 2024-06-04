@@ -13,6 +13,7 @@ class PortfolioController extends Controller
         return view('portfolio.index',[
             'titles' => auth()->user()->titlesString,
             'about' => auth()->user()->about,
+            'skills' => auth()->user()->skills,
         ]);
     }
 }
