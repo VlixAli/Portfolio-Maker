@@ -9,4 +9,5 @@ Route::controller(PortfolioController::class)
 
         include 'hero.php';
         include 'about.php';
+        include 'skills.php';
     });
