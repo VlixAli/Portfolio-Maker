@@ -14,6 +14,7 @@ class PortfolioController extends Controller
             'titles' => auth()->user()->titlesString,
             'about' => auth()->user()->about,
             'skills' => auth()->user()->skills,
+            'educations' => auth()->user()->educations,
         ]);
     }
 }
