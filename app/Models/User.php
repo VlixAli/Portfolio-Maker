@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->hasMany(Skill::class);
     }
 
+    public function educations(): HasMany
+    {
+        return $this->hasMany(Education::class);
+    }
+
     public function getFullNameAttribute() : string
     {
         return $this->first_name . ' ' . $this->last_name ;
