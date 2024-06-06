@@ -11,4 +11,5 @@ Route::controller(PortfolioController::class)
         include 'about.php';
         include 'skills.php';
         include 'educations.php';
+        include 'experiences.php';
     });
