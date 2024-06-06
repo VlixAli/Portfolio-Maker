@@ -68,6 +68,11 @@ class User extends Authenticatable
         return $this->hasMany(Education::class);
     }
 
+    public function experiences(): HasMany
+    {
+        return $this->hasMany(Experience::class);
+    }
+
     public function getFullNameAttribute() : string
     {
         return $this->first_name . ' ' . $this->last_name ;
