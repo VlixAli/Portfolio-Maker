@@ -73,6 +73,11 @@ class User extends Authenticatable
         return $this->hasMany(Experience::class);
     }
 
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
+
     public function getFullNameAttribute() : string
     {
         return $this->first_name . ' ' . $this->last_name ;
