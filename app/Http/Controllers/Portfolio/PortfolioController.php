@@ -17,6 +17,7 @@ class PortfolioController extends Controller
             'educations' => auth()->user()->educations,
             'experiences' => auth()->user()->experiences,
             'projects' => auth()->user()->projects,
+            'services' => auth()->user()->services,
         ]);
     }
 }
