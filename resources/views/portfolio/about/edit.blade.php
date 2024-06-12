@@ -12,7 +12,7 @@
         <x-form2.input name="degree" label="Degree" :value="$about->degree?? null" />
         <x-form2.input name="phone" label="Phone" :value="$about->phone?? null" />
         <x-form2.input name="email" label="Email" :value="$about->email?? null" />
-        <x-form2.input name="city" label="City" :value="$about->city?? null" />
+        <x-form2.input name="address" label="Address" :value="$about->address?? null" />
         <x-form2.input name="freelance" label="Freelance" :value="$about->freelance?? null" />
         <x-form2.textarea name="ending" label="Ending" :value="$about->ending?? null" />
 

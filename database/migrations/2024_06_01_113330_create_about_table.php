@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('age')->nullable();
             $table->string('website')->nullable();
             $table->string('phone')->nullable();
-            $table->string('city')->nullable();
+            $table->string('address')->nullable();
             $table->string('degree')->nullable();
             $table->string('email')->nullable();
             $table->enum('freelance', ['Available', 'Unavailable'])->nullable();

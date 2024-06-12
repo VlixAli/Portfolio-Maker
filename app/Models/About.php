@@ -12,7 +12,7 @@ class About extends Model
 
     protected $fillable = [
       'user_id', 'summary', 'title', 'birthday', 'age', 'website', 'phone', 'email',
-        'city', 'degree', 'freelance', 'short_summary', 'ending'
+        'address', 'degree', 'freelance', 'short_summary', 'ending'
     ];
 
     public function users(): BelongsTo

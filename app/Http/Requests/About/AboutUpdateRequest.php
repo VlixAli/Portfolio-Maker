@@ -31,7 +31,7 @@ class AboutUpdateRequest extends FormRequest
             'degree' => 'nullable|string',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
-            'city' => 'nullable|string',
+            'address' => 'nullable|string',
             'freelance' => 'nullable|in:Available,Unavailable',
             'ending' => 'nullable'
         ];
